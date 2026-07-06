@@ -18,6 +18,7 @@ built and ready — you just point traffic at it and read the numbers.
 | File | What it is | Status |
 |---|---|---|
 | `index.html` | Full smoke-test landing page: HN-pain hero, alert-feed phone mock, feature grid, compare table, $4.99/mo founder-price anchor, email capture ×2 | ✅ built + browser-tested (form works, counter 128→129, funnel tracked) |
+| `deploy.sh` | **One-command deploy to a LIVE public URL** (GitHub Pages). Repo already git-initialized + committed. | ✅ built + syntax-tested; needs `gh auth login` once |
 | `ASO-keywords.md` | App Store subtitle / promo text / keyword field / description opener + keywords to watch + pass criteria | ✅ ready to paste into App Store Connect |
 | `reddit-post.md` | r/Parenting-safe question post + r/daddit WTP version + result-reading gate | ✅ ready to post |
 | `preview.sh` | One command to open the page locally | ✅ |
@@ -86,7 +87,11 @@ numbers in 3 days, not months of code.
 
 ---
 
-## Fastest possible start (if you only do one thing today)
-Deploy the page (Netlify Drop, 2 min) → paste a Formspree endpoint (2 min) → drop the link
-in a reply on the original HN thread + post the r/daddit WTP version. You'll have a real
-signal by the weekend.
+## Fastest possible start (2 commands + one paste)
+```bash
+gh auth login          # once, ~30 sec: GitHub.com → HTTPS → browser
+bash deploy.sh         # → prints your LIVE https://<you>.github.io/sprouguard-family/ URL
+```
+Then make a free Formspree form, paste its endpoint into the `ENDPOINT=""` line in
+`index.html`, run `bash deploy.sh` again, and drop the link in a reply on the original HN
+thread + post the r/daddit WTP version. You'll have a real signal by the weekend.
